@@ -22,24 +22,6 @@ def query_df(phrase):
     # phrase = phrase.lower()
     return df.query(f'speech_clean_end_4.str.contains("{phrase}")', engine='python')
 
-def generate_personal_cloud(speaker):
-    # words = df[df['speaker'] == speaker]['lemma_words'].sum()
-    words = df[df['speaker'] == speaker]['lemma_words'].apply(lambda x: list(x)).sum()
-    words = ' '.join(words)
-    wordcloud = WordCloud(width = 800, height = 800,
-                background_color ='white',
-                stopwords = add_stop_words,     # mask = pic,
-                min_font_size = 10).generate(words)
-
-    # Create a figure of the generated cloud
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    plt.show()
-    # col1.pyplot()
-
-
-
-
 # Loading data
 df = load_data('./data/speeches_lemma.parquet')
 
@@ -117,6 +99,16 @@ speeches_party = df[df['speaker_group'] == 'Poseł']['party'].value_counts()
 fig = px.bar(y= speeches_party.values, x= speeches_party.index, color = speeches_party.index, width=1000, text_auto='.3s')
 fig.update_layout({'title':{'text': '<b>Speeches count per Political Party<b>', 'x':0.5},
                    'xaxis_title': {'text': 'Political Party'},
+                   'yaxis_title': {'text': 'Speeches count'}},
+                  showlegend=False)
+st.plotly_chart(fig)
+
+
+st.write('#### Top Speakers')
+top_speakers = df[df['speaker_group'] == 'Poseł']['speaker'].value_counts().head(10)
+fig = px.bar(y= top_speakers.values, x= top_speakers.index, width=1000, text_auto='.3s')
+fig.update_layout({'title':{'text': '<b>Top Speakers<b>', 'x':0.5},
+                   'xaxis_title': {'text': 'Politician'},
                    'yaxis_title': {'text': 'Speeches count'}},
                   showlegend=False)
 st.plotly_chart(fig)
