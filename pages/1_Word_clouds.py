@@ -54,7 +54,7 @@ col2.image('images/sejm_logo.jpg', width=200)
 # Personalized Word Cloud
 st.title('Personalized Word Cloud')
 st.write('- A word cloud is a word visualization that displays words proportional to how often they appear in a text.\n '
-         '\n- To provide meaningful insights I dropped polish stop words (like *że*, *żeby*) and other useless phrases (*Wysoka Izbo*).\n'
+         '\n- To provide meaningful insights I dropped Polish stop words (like *że*, *żeby*) and other useless phrases (*Wysoka Izbo*).\n'
          '\n- Each word has been lemmatized -  converted into its base form.' )
 
 

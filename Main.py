@@ -29,16 +29,16 @@ col2.image('images/sejm_logo.jpg', width=200)
 # Project overview and business usage
 col_1, col_2 = st.columns(2)
 col_1.subheader("Project Overview")
-col_1.write('This app allows you to investigate polish parliament speeches in depth.\n'
+col_1.write('This app allows you to investigate Polish parliament speeches in depth.\n'
             '\n I scraped, cleaned and preprocessed'
          ' data from https://www.sejm.gov.pl/ to make it more useful for analysis.\n'
          '\n **Github repo:** https://github.com/azebryk/Sejm\n'
          '\n **Contact:** https://www.linkedin.com/in/agata-zebryk/')
 
 col_2.subheader("Business usage")
-col_2.write('This app might be useful for political journalist or anyone who is interested in politics.\n'
-            '\n Do you remember interesting quote from polish parliament, but you are not sure who said this and when?\n'
-            '\n Have you ever wonder what are the main topics in polish parliament?\n'
+col_2.write('This app might be useful for political journalists or anyone who is interested in politics.\n'
+            '\n Do you remember an interesting quote from the Polish parliament, but you are not sure who said this and when?\n'
+            '\n Have you ever wondered what the main topics are in the Polish parliament?\n'
          '\n If so, you are in the right place :)')
 
 st.subheader('Application Content:')
@@ -71,7 +71,7 @@ st.write(f"Mean number of speeches per meeting: {int(df.groupby('date')['speech'
 
 ##Speaker group
 st.write('#### Speaker group')
-st.write('**There are 3 main groups of speakers in polish parliament:**\n'
+st.write('**There are 3 main groups of speakers in Polish parliament:**\n'
          '\n -*Marszałek/Wiecemarszałek* - moderator\n'
          '\n -*Poseł* - member\n'
          '\n -*Other*')
@@ -81,7 +81,7 @@ fig.update_layout({'title':{'text': '<b>Speeches per speaker group<b>', 'x':0.5}
 st.plotly_chart(fig)
 
 # Length of speeches per speaker group
-st.write("Let's explore length of speeches for each group")
+st.write("Let's explore the length of speeches for each group.")
 st.write('#### Length of speeches per speaker group')
 fig = px.box(df, x='speech_len', color='speaker_group', width=1000)
 fig.update_xaxes(range=[0, 15000])
@@ -90,8 +90,8 @@ fig.update_layout({'title':{'text': '<b>Length of speeches per speaker group<b>'
                   xaxis_title="Speech length")
 st.plotly_chart(fig)
 st.write('**Comment:**')
-st.write('- Marszałek/Wice, who moderates parliament meetings, have usually very short speeches like "Thank you, Next"\n'
-         '\n - The longest speeches comes from "Other" group, who are "guests" in parliaments meeting like president or ministers')
+st.write("- Marszałek/Wice, who moderates parliament meetings, usually has very short speeches like *Thank you, Next*.\n"
+         "\n - The longest speeches come from *Other* group, who are *guests* in parliament's meeting like president or ministers.")
 
 # Speeches count per party
 st.write('#### Speeches count per party')
@@ -113,4 +113,4 @@ fig.update_layout({'title':{'text': '<b>Top Speakers<b>', 'x':0.5},
                   showlegend=False)
 st.plotly_chart(fig)
 
-st.write('If you want to find out more about speeches please go to *Word cloud* or *Topic modeling* pages.')
+st.write('If you want to find out more about speeches, please go to *Word cloud* or *Topic modeling* pages.')

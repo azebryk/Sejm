@@ -47,8 +47,8 @@ st.write('Topic modeling is an unsupervised machine learning technique that’s 
          'detecting word and phrase patterns within them, and automatically clustering word groups and similar '
          'expressions that best characterize a set of documents.\n'
          '\nI used one of the most popular techniques of topic modeling -  **Latent Dirichlet Allocation**. Key concepts:\n'
-         '\n- LDA extract topics from a corpus of documents. The number of topics has to be previously defined by us.\n'
-         '\n- For each document LDA assignes topic/topics as percentages how much this document is about those topics\n'
+         '\n- LDA extracts topics from a corpus of documents. The number of topics has to be previously defined by us.\n'
+         '\n- For each document, LDA assignes topic/topics as percentages defining how much this document is about those topics\n'
          '**Here is a visualation of 10 topics built based on all parliament speeches:**')
 
 # st.write(df)

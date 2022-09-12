@@ -50,6 +50,6 @@ else:
     st.dataframe(df)
 
 
-st.write('If you want to see the full context of speech you can check it on based on '
+st.write('If you want to see the full context of the speech, you can check it on'
          'https://www.sejm.gov.pl/Sejm9.nsf/stenogramy.xsp')
 
